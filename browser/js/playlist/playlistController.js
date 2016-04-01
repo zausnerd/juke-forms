@@ -34,5 +34,17 @@ juke.controller('SinglePlaylistCtrl', function ($http,$scope, $stateParams, Play
 			$scope.songChoice = '';
 		});
 	}
+	$scope.remove = function(song) {
+		PlaylistFactory.removeSong($scope.playlist, song)
+		.then(function(data) {
+			console.log("BEFOREEE", $scope.playlist.songs);
+			for (var i = 0; i < scope.playlist.songs.length; i++) {
+				if (song._id === $scope.playlist.songs[i]._id) {
+				$scope.playlist.songs.splice(i,1);
+				}
+			}
+			console.log("after", $scope.playlist.songs);
+		});
+	}
 });
 

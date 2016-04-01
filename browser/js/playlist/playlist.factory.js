@@ -34,5 +34,12 @@ juke.factory('PlaylistFactory', function ($http, $q) {
       return response.data;
     });
   }
+
+  playlist.removeSong = function(playlist, song) {
+    return $http.delete('/api/playlists/' + playlist._id + '/songs/' + song._id)
+    .then(function(response) {
+      return response.data;
+    });
+  }
   return playlist;
 });
