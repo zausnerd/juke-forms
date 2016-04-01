@@ -9,6 +9,7 @@ juke.factory('SongFactory', function ($http, $q) {
     },
     getAllSongs : function() {
     	return $http.get('/api/songs').then(function(allSongs) {
+        console.log(allSongs);
     		return allSongs.data;
     	});
     }

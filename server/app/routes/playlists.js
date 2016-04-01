@@ -70,7 +70,8 @@ router.delete('/:playlistId/songs/:songId', function (req, res, next) {
   req.playlist.songs.pull(req.params.songId);
   req.playlist.save()
   .then(function () {
-    res.status(204);
+    res.status(204)
+    .send();
   })
   .then(null, next);
 });
